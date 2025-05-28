@@ -1,0 +1,59 @@
+.Nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #05112b;
+  margin: 0;
+}
+.Nav h1{
+  color: white;
+}
+.Nav a{
+  color: white;
+  text-decoration: none;
+}
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.btn-bd-primary {
+  color: #262626;
+  background-color: #ffffff;
+  border: 1px solid #262626;
+  border-radius: 25px;
+  padding: 5px 25px;
+}
+.btn-start{
+  color: black;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 75px;
+  font-size: 1.5em;
+  margin: 25px;
+}
+
+.btn-bd-primary:hover {
+  background-color: #262626; /* darker background */
+  color: #ffffff;            /* white text on hover */
+  border-color: #262626;
+}
+
+.btn-start:hover {
+  background-color: #262626; 
+  color: #ffffff;           
+}
+
+.home{
+  padding: 200px 50px 200px 50px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  background-color: #05112b;;
+}
+.home h2{
+  font-size: 3.5em;
+}

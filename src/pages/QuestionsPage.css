@@ -1,0 +1,149 @@
+.questions-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.question-step {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+input[type="radio"] {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  background-color: #262626;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4e4e4e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.question-block {
+  margin-bottom: 3rem;
+}
+
+.custom-radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.custom-radio-group label {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 2px solid #262626;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #262626;
+}
+
+.custom-radio-group label:hover {
+  background-color: #f5f5f5;
+}
+
+.custom-radio-group label.selected {
+  background-color: #262626;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.credit-input {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 250px;
+}
+.btn-next.disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+.options label {
+  display: block;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.options label.selected {
+  border-color: #6366f1;
+  background-color: #eef2ff;
+  font-weight: 600;
+}
+
+.input-box {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  width: 100%;
+}
+.button-group{
+    margin-top: 20px;
+}
+.back-btn{
+    margin-right: 10px
+}
+.btn-next {
+  margin-top: 2rem;
+  background-color: #0f2e64;
+  color: white;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.summary-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
