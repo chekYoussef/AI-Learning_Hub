@@ -1,0 +1,19 @@
+.node-content {
+  background: #fff;
+  padding: 10px;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.node-content h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.node-content p {
+  font-size: 14px;
+  margin-top: 10px;
+}
