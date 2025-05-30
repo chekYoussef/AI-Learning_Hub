@@ -1,11 +1,24 @@
-.node-content {
-  background: #fff;
-  padding: 10px;
-  width: 220px;
+
+.roadmap-wrapper {
+  max-height: 80vh; /* Adjust as needed */
+  overflow: auto;
+  padding: 20px;
   border: 1px solid #ccc;
+  margin: 20px auto;
+}
+
+#course-roadmap {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.node-content {
+  background-color: #f9f9f9;
+  border: 2px solid #d3d3d3;
+  padding: 10px;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  width: 240px;
 }
 
 .node-content h3 {
@@ -15,5 +28,5 @@
 
 .node-content p {
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
