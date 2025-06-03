@@ -1,0 +1,15 @@
+.RightSectionMap{
+    text-align: center;
+    background-color: #1a1a1a;
+    color:white;
+    width: 300px;
+    padding: 1rem;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+}
+.btn-Courses{
+    margin-top: 20px;
+    background-color: rgb(21, 96, 188);
+}
+.list-group{
+    margin-top: 20px;
+}

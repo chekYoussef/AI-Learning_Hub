@@ -1,24 +1,36 @@
 
-.roadmap-wrapper {
-  max-height: 80vh; /* Adjust as needed */
-  overflow: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin: 20px auto;
-}
 
 #course-roadmap {
-  width: max-content;
-  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 2.5 ease-in;
+}
+#course-roadmap.loaded {
+  opacity: 2;
 }
 
+/* roadmap.css */
+.roadmap-wrapper {
+  width: 100vw;
+  height: 100vh;
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+/* optional: ensures the inner roadmap expands properly */
+#course-roadmap {
+  min-width: 2000px; /* or a large enough value */
+  min-height: 1000px;
+  position: relative;
+}
+
+
 .node-content {
-  background-color: #f9f9f9;
-  border: 2px solid #d3d3d3;
-  padding: 10px;
-  border-radius: 8px;
+  background-color: #262626;
   text-align: center;
   width: 240px;
+  height: 235px;
+  color:white;
 }
 
 .node-content h3 {
@@ -29,4 +41,5 @@
 .node-content p {
   font-size: 14px;
   margin-top: 8px;
+ 
 }
