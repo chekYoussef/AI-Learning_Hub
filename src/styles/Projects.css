@@ -1,0 +1,59 @@
+.Projects-section h1{
+    margin: 25px;
+}
+.Projects-dash{
+    background-color: #f4f1f1;
+}
+.Projects-buttons{
+    margin: 20px;
+}
+.btn-ongoing{
+    background-color: white;
+    color:#1088de;
+    border: 1px solid #1088de;
+    margin: 15px;
+    padding: 10px 65px;
+}
+.btn-completed{
+    background-color: white;
+    color:#1088de;
+    border: 1px solid #1088de;
+    margin: 15px;
+    padding: 10px 65px;
+}
+.btn-archived{
+    background-color: white;
+    color:#1088de;
+    border: 1px solid #1088de;
+    margin: 15px;
+    padding: 10px 65px;
+}
+.row{
+    margin: 25px;
+}
+.card{
+    border: 1px solid #1088de;
+    height: 450px;
+}
+.card-text{
+    height: 120px;
+}
+.btn-clients{
+    background-color:#0b93f5;
+    margin-right: 15px;
+}
+.btn-ress{
+    background-color:#d1cfcf;
+    color:black;
+}
+.card-body h4{
+    color:#0b93f5;
+
+}
+.more-section{
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+    float:right;
+  
+}
