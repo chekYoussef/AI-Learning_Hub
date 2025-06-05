@@ -23,7 +23,7 @@ const DashNav: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="RoadMap">
               <img id="icon" src="/images/roadmap.png"></img> Roadmap
             </a>
           </li>

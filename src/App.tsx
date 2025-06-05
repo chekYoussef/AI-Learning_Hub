@@ -2,8 +2,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import RoadMap from "./pages/RoadMap";
 import Projects from "./pages/Projects";
+import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Projects" element={<Projects />} />
+        <Route path="/RoadMap" element={<RoadMap />} />
         {/* add more routes here */}
       </Routes>
     </Router>

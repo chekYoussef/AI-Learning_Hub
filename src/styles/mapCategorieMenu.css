@@ -10,6 +10,11 @@
     margin-top: 20px;
     background-color: rgb(21, 96, 188);
 }
+.btn-Practice{
+    background-color: rgb(239, 242, 245);
+    margin-left: 2%;
+    color:black;
+}
 .list-group{
     margin-top: 20px;
 }
