@@ -1,0 +1,50 @@
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top:10%;
+}
+.DashSideBar-section {
+  background-color: #1a1a1a;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+
+  overflow: hidden;
+}
+
+.DashSideBar-section.open {
+  width: 20%;
+}
+
+.DashSideBar-section.closed {
+  width: 80px; /* Adjust as needed */
+}
+
+.DashSideBar-section button {
+  background-color: transparent;
+  padding: 12px;
+  border: none;
+  color: white;
+  width: 100%;
+  text-align: left;
+  border-radius: 15px;
+}
+
+.DashSideBar-section button:hover {
+  background-color: rgb(126, 125, 125);
+}
+
+.DashSideBar-section img {
+  width: 30px;
+  height: auto;
+}
+
+.sidebar-nav img{
+    margin-right: 5%;
+    margin-left: 5%;
+}

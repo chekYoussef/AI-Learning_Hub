@@ -7,11 +7,15 @@
 }
 .dashnav ul{
     list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
     
 }
 .dashnav li{
     list-style-type: none;
     display: inline-block;
+
 }
 .dashnav a{
    text-decoration: none;

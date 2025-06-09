@@ -1,10 +1,4 @@
 .dashboard-page{
-    background-color:rgb(44, 43, 43);
+    background-color:#212324;
 }
 
-.dashboard-content {
-  display: flex;
-  height: calc(100vh - 60px); /* adjust for navbar height */
-  width: 100vw;
-  overflow: hidden;
-}
