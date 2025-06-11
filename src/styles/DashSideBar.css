@@ -8,7 +8,7 @@
 .DashSideBar-section {
   background-color: #1a1a1a;
   color: white;
-  height: 100vh;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,7 +22,7 @@
 }
 
 .DashSideBar-section.closed {
-  width: 80px; /* Adjust as needed */
+  width: 80px; 
 }
 
 .DashSideBar-section button {

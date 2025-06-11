@@ -2,3 +2,8 @@
     background-color:#212324;
 }
 
+.dashboard-container{
+    display: flex;
+    height: 92vh;
+    width: 100vw;
+}

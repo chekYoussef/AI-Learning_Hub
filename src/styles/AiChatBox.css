@@ -1,0 +1,51 @@
+.AiChatBox {
+flex:1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border-radius: 25px;
+  color: white;
+  padding: 20px;
+  margin: 15px;
+  overflow: hidden;
+  height: 88vh;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.chat-messages h2{
+    font-size: 2.5em;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input.form-control {
+  flex: 1;
+  background-color: #353739 !important;
+  color: white !important;
+  border-color: #353739;
+  outline: none;
+  box-shadow: none;
+}
+
+input.form-control::placeholder {
+  color: #aaa; 
+}
+#send-btn {
+  background-color: #0b93f5 !important;
+  color: white !important;
+}
+
+button.btn img {
+  margin-right: 0;
+}
