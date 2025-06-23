@@ -49,3 +49,29 @@ input.form-control::placeholder {
 button.btn img {
   margin-right: 0;
 }
+.chat-bubble {
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 10px auto;
+  display: inline-block;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.chat-bubble.user {
+  background-color: #0b93f5;
+  color: white;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.chat-bubble.bot {
+  background-color: #353739;
+  color: white;
+  align-self: flex-start;
+  text-align: left;
+  margin-right: auto;
+}
