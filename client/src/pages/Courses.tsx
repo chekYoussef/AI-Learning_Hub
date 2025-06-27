@@ -1,64 +1,88 @@
 import DashNav from "../components/DashNav";
 import "../styles/Courses.css";
-import React, { useState } from "react";
-// Sample data
-const courseData = [
-  { id: 1, title: "HTML Basics", category: "Web" },
-  { id: 2, title: "CSS Design", category: "Web" },
-  { id: 3, title: "React 101", category: "Programming" },
-  { id: 4, title: "Data Analysis", category: "Data" },
-  { id: 5, title: "Figma Design", category: "Design" },
+import React, { useState, useEffect } from "react";
+
+interface Course {
+  _id: string;
+  title: string;
+  category: string;
+  description: string;
+  link: string;
+  image: string;
+}
+
+const categories = [
+  "All",
+  "Web",
+  "Programming",
+  "Data",
+  "Design",
+  "Marketing & PR",
+  "Entrepreneurship",
+  "Project Management",
+  "Finance",
+  "Soft Skills",
 ];
 
-// List of categories
-const categories = ["All", "Web", "Programming", "Data", "Design"];
 const Courses: React.FC = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  useEffect(() => {
+    fetch("/api/courses")
+      .then((res) => res.json())
+      .then((data) => setCourses(data))
+      .catch((err) => console.error("Failed to fetch courses:", err));
+  }, []);
 
   const filteredCourses =
     selectedCategory === "All"
-      ? courseData
-      : courseData.filter((course) => course.category === selectedCategory);
+      ? courses
+      : courses.filter((course) => course.category === selectedCategory);
 
   return (
-    <div>
-      {/* Navigation */}
+    <div className="courses-section">
       <DashNav />
-      <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor:
-                selectedCategory === category ? "#0b93f5" : "#ccc",
-              color: selectedCategory === category ? "white" : "black",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            {category}
-          </button>
-        ))}
+      <div className="courses-header">
+        <h2>Courses</h2>
+        <p>Discover and create new courses at the Edge Center</p>
+        <button className="new-course-btn">
+          <i
+            className="bi bi-plus"
+            style={{ color: "white", marginRight: "5px", fontSize: "auto" }}
+          ></i>
+          New Courses
+        </button>
+        <div className="category-buttons">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`category-btn ${
+                selectedCategory === category ? "active" : ""
+              }`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Course Display */}
-      <div>
+      <div className="course-list">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => (
-            <div
-              key={course.id}
-              style={{
-                marginBottom: "15px",
-                padding: "10px",
-                border: "1px solid #ddd",
-                borderRadius: "10px",
-              }}
-            >
+            <div className="course-card" key={course._id}>
+              <a href={course.link} target="_blank" rel="noreferrer">
+                <img
+                  src={`../images/${course.image}`}
+                  alt={course.title}
+                  className="course-image"
+                />
+              </a>
               <h4>{course.title}</h4>
-              <p>Category: {course.category}</p>
+              <p>{course.description}</p>
+
+              <button className="course-category">{course.category}</button>
             </div>
           ))
         ) : (
@@ -68,4 +92,5 @@ const Courses: React.FC = () => {
     </div>
   );
 };
+
 export default Courses;

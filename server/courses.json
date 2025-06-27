@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Project Management",
+    "category": "Project-management",
+    "description": "Deliver successful projects with effective tools and agile principles.",
+    "link": "https://example.com/project-management",
+    "image": "PR.png"
+  },
+  {
+    "title": "HTML Basics",
+    "category": "Web",
+    "description": "Learn the foundation of the web using HTML5.",
+    "link": "https://example.com/html",
+    "image": "Design.png"
+  },
+  {
+    "title": "CSS Design",
+    "category": "Web",
+    "description": "Master layouts, styling, and responsive design with CSS.",
+    "link": "https://example.com/css",
+    "image": "coding"
+  },
+  {
+    "title": "JavaScript Fundamentals",
+    "category": "Programming",
+    "description": "Understand variables, loops, and functions in JavaScript.",
+    "link": "https://example.com/javascript",
+    "image": "coding"
+  },
+  {
+    "title": "React 101",
+    "category": "Programming",
+    "description": "A beginner's guide to React and component-based UI.",
+    "link": "https://example.com/react",
+    "image": "coding"
+  },
+  {
+    "title": "Figma Design",
+    "category": "Design",
+    "description": "Design stunning user interfaces with Figma.",
+    "link": "https://example.com/figma",
+    "image": "Design.png"
+  },
+  {
+    "title": "Data Analysis with Python",
+    "category": "Data",
+    "description": "Use pandas and NumPy to analyze real-world datasets.",
+    "link": "https://example.com/data-analysis",
+    "image": "Finance.png"
+  },
+  {
+    "title": "Git & GitHub Essentials",
+    "category": "Programming",
+    "description": "Track changes and collaborate using Git and GitHub.",
+    "link": "https://example.com/git",
+    "image": "coding"
+  },
+  {
+    "title": "Prompt Engineering for AI",
+    "category": "AI",
+    "description": "Learn how to craft better prompts to guide language models like GPT.",
+    "link": "https://example.com/prompt-engineering",
+    "image": "SEO.png"
+  },
+  {
+    "title": "Machine Learning Foundations",
+    "category": "AI",
+    "description": "Understand supervised, unsupervised learning and model evaluation.",
+    "link": "https://example.com/ml-foundations",
+    "image": "Entrep"
+  }
+]

@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import geminiRoute from "./routes/gemini.mjs";
+import coursesRouter from "./routes/courses.mjs";
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 
 // API routes
 app.use("/api/gemini", geminiRoute);
+app.use("/api/courses", coursesRouter);
 
 app.get("/", (req, res) => {
   res.send("Server root is working ✅");

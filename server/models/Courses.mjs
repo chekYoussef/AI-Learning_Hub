@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
 const courseSchema = new mongoose.Schema({
-    categorie:String,
-    title:String,
-    description:String,
-    link:string,
+    category: String,
+    title: String,
+    description: String,
+    link: String,
+    image: String, 
 });
 export const Course = mongoose.model("Course", courseSchema)

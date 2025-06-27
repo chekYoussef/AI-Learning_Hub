@@ -1,3 +1,4 @@
+// src/components/AiChatBox.tsx
 import React, { useState } from "react";
 import "../styles/AiChatBox.css";
 
@@ -16,14 +17,11 @@ const AiChatBox: React.FC = () => {
     try {
       const response = await fetch("/api/gemini/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput }),
       });
 
       const data = await response.json();
-      console.log("AI response from backend:", data); // Debug
       const botReply = data.reply?.trim() || "Sorry, I didn't get that.";
 
       setMessages([...newMessages, { role: "assistant", content: botReply }]);
@@ -45,9 +43,13 @@ const AiChatBox: React.FC = () => {
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`chat-bubble ${msg.role === "user" ? "user" : "bot"}`}
+            className={`chat-row ${msg.role === "user" ? "right" : "left"}`}
           >
-            <span>{msg.content}</span>
+            <div
+              className={`chat-bubble ${msg.role === "user" ? "user" : "bot"}`}
+            >
+              {msg.content}
+            </div>
           </div>
         ))}
       </div>
@@ -70,10 +72,7 @@ const AiChatBox: React.FC = () => {
           <img
             src="/images/paper-plane.png"
             alt="send"
-            style={{
-              cursor: "pointer",
-              width: "25px",
-            }}
+            style={{ cursor: "pointer", width: "25px" }}
           />
         </button>
       </div>
