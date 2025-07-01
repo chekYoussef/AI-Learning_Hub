@@ -7,7 +7,7 @@
 .Projects-buttons{
     margin: 20px;
 }
-.btn-ongoing{
+.status-btn{
     background-color: white;
     color:#1088de;
     border: 1px solid #1088de;
@@ -28,23 +28,48 @@
     margin: 15px;
     padding: 10px 65px;
 }
-.row{
+.projects-list{
     margin: 25px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:20px;
+}
+
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .card{
     border: 1px solid #1088de;
     height: 450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card-text{
     height: 120px;
 }
+
 .btn-clients{
-    background-color:#0b93f5;
+    background-color:#0b93f5;;
+    color: white;
     margin-right: 15px;
+    padding: 15px 35px;
+    border-radius: 25px;
+    text-decoration: none;
 }
 .btn-ress{
     background-color:#d1cfcf;
     color:black;
+    padding: 15px 35px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+.btn-clients:hover{
+    background-color:#1088de;
+}
+.btn-ress:hover{
+    background-color: rgb(73, 71, 71);
+    color: black;
 }
 .card-body h4{
     color:#0b93f5;

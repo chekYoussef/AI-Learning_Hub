@@ -1,0 +1,66 @@
+[
+  {
+    "category": "Web Design",
+    "title": "Collective Cachet",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/collective-cachet-notes",
+    "ressources": "https://example.com/collective-cachet-ressources"
+  },
+  {
+    "category": "Web Design",
+    "title": "Cool QC",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/cool-qc-notes",
+    "ressources": "https://example.com/cool-qc-ressources"
+  },
+  {
+    "category": "Web Design",
+    "title": "Machu Move Managers",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/machu-notes",
+    "ressources": "https://example.com/machu-ressources"
+  },
+  {
+    "category": "Web Design",
+    "title": "Prophetstown Library",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/prophetstown-notes",
+    "ressources": "https://example.com/prophetstown-ressources"
+  },
+  {
+    "category": "Web Design",
+    "title": "QC General",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/qc-general-notes",
+    "ressources": "https://example.com/qc-general-ressources"
+  },
+  {
+    "category": "Logo Design",
+    "title": "Collective Cachet",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/cc-logo-notes",
+    "ressources": "https://example.com/cc-logo-ressources"
+  },
+  {
+    "category": "Logo Design",
+    "title": "Her20",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/her20-notes",
+    "ressources": "https://example.com/her20-ressources"
+  },
+  {
+    "category": "Coding",
+    "title": "Mock Website",
+    "status": "Ongoing",
+    "description": "With supporting text below as a natural lead-in to additional content.",
+    "clientNotes": "https://example.com/mock-notes",
+    "ressources": "https://example.com/mock-ressources"
+  }
+]
