@@ -49,6 +49,7 @@
     height: 120px;
 }
 
+
 .btn-clients{
     background-color:#0b93f5;;
     color: white;
@@ -68,13 +69,17 @@
     background-color:#1088de;
 }
 .btn-ress:hover{
-    background-color: rgb(73, 71, 71);
+    background-color: rgb(137, 135, 135);
     color: black;
 }
-.card-body h4{
-    color:#0b93f5;
-
+.card-title{
+    color:rgb(69, 68, 68);
+    font-weight: bold;
 }
+.card-subtitle {
+    color:#0b93f5;
+}
+
 .more-section{
     display: flex;
     align-items: center;

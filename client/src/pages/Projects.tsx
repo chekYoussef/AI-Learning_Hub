@@ -12,10 +12,10 @@ interface Project {
   description: string;
   clientNotes: string;
   ressources: string;
+  isFavorite?: boolean;
 }
 
-const categories = ["Web", "Design", "Coding", "Logo"];
-const status = ["Ongoing", "Completed", "Archived", "Deleted"];
+const statusOptions = ["Ongoing", "Completed", "Archived"];
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -24,23 +24,45 @@ const Projects: React.FC = () => {
   useEffect(() => {
     fetch("/api/projects")
       .then((res) => res.json())
-      .then((data) => setProjects(data))
+      .then((data) => {
+        const initialized = data.map((project: Project) => ({
+          ...project,
+          isFavorite: project.isFavorite ?? false,
+        }));
+        setProjects(initialized);
+      })
       .catch((err) => console.error("Failed to fetch projects:", err));
   }, []);
+
+  const updateLocalProject = (id: string, updates: Partial<Project>) => {
+    setProjects((prev) =>
+      prev.map((p) => (p._id === id ? { ...p, ...updates } : p))
+    );
+  };
+
+  const handleFavoriteToggle = (project: Project) => {
+    const isNowFavorite = !project.isFavorite;
+    const newStatus = isNowFavorite ? "Archived" : "Ongoing";
+    updateLocalProject(project._id, {
+      isFavorite: isNowFavorite,
+      status: newStatus,
+    });
+  };
 
   const filteredProjects =
     selectedStatus === "Ongoing"
       ? projects
-      : projects.filter((project) => project.status === selectedStatus);
+      : projects.filter((p) => p.status === selectedStatus);
 
   return (
     <>
       <DashNav />
       <div className="Projects-section">
         <h1>My Projects</h1>
+
         <div className="Projects-dash">
           <div className="Projects-buttons">
-            {status.map((s) => (
+            {statusOptions.map((s) => (
               <button
                 key={s}
                 className={`status-btn ${selectedStatus === s ? "active" : ""}`}
@@ -70,7 +92,8 @@ const Projects: React.FC = () => {
                         }}
                       />
                     </h4>
-                    <h4>{project.category}</h4>
+
+                    <h4 className="card-subtitle">{project.category}</h4>
                     <br />
                     <br />
                     <h5>
@@ -82,6 +105,7 @@ const Projects: React.FC = () => {
                       Description:
                     </h5>
                     <p className="card-text">{project.description}</p>
+
                     <a
                       href={project.clientNotes}
                       target="_blank"
@@ -90,7 +114,6 @@ const Projects: React.FC = () => {
                     >
                       Client Notes
                     </a>
-
                     <a
                       href={project.ressources}
                       target="_blank"
@@ -99,9 +122,25 @@ const Projects: React.FC = () => {
                     >
                       Ressources
                     </a>
+
                     <div className="more-section">
-                      <FavoriteButton />
-                      <DropdownMoreButton />
+                      <FavoriteButton
+                        isFavorite={project.isFavorite ?? false}
+                        onToggle={() => handleFavoriteToggle(project)}
+                      />
+
+                      <DropdownMoreButton
+                        onMarkComplete={() =>
+                          updateLocalProject(project._id, {
+                            status: "Completed",
+                          })
+                        }
+                        onArchive={() =>
+                          updateLocalProject(project._id, {
+                            status: "Archived",
+                          })
+                        }
+                      />
                     </div>
                   </div>
                 </div>

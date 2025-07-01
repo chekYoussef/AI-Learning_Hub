@@ -1,45 +1,39 @@
-const DropdownMoreButton = () => {
+interface DropdownMoreProps {
+  onMarkComplete: () => void;
+  onArchive: () => void;
+}
+
+const DropdownMoreButton: React.FC<DropdownMoreProps> = ({
+  onMarkComplete,
+  onArchive,
+}) => {
   return (
     <div className="dropdown">
       <button
         className="btn p-0 border-0 bg-transparent"
         type="button"
-        id="dropdownMenuButton"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         <i
           className="bi bi-three-dots"
-          style={{
-            cursor: "pointer",
-            color: "#333",
-            fontSize: "2.5rem",
-            padding: "15px 10px",
-            marginRight: "5px",
-          }}
+          style={{ cursor: "pointer", fontSize: "2.5rem" }}
         ></i>
       </button>
-      <ul
-        className="dropdown-menu dropdown-menu-end"
-        aria-labelledby="dropdownMenuButton"
-      >
+      <ul className="dropdown-menu dropdown-menu-end">
         <li>
-          <a className="dropdown-item" href="#">
+          <button className="dropdown-item" onClick={onMarkComplete}>
             Mark Complete
-          </a>
+          </button>
         </li>
         <li>
-          <a className="dropdown-item" href="#">
-            Add
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Delete
-          </a>
+          <button className="dropdown-item" onClick={onArchive}>
+            Archive
+          </button>
         </li>
       </ul>
     </div>
   );
 };
+
 export default DropdownMoreButton;

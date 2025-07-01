@@ -1,13 +1,12 @@
-import { useState } from "react";
-import "bootstrap-icons/font/bootstrap-icons.css";
+interface FavoriteButtonProps {
+  isFavorite: boolean;
+  onToggle: () => void;
+}
 
-const FavoriteButton = () => {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
-
+const FavoriteButton: React.FC<FavoriteButtonProps> = ({
+  isFavorite,
+  onToggle,
+}) => {
   return (
     <i
       className={`bi ${isFavorite ? "bi-star-fill" : "bi-star"}`}
@@ -15,8 +14,9 @@ const FavoriteButton = () => {
         fontSize: "24px",
         color: isFavorite ? "#ffc107" : "#6c757d",
         cursor: "pointer",
+        marginRight: "10px",
       }}
-      onClick={toggleFavorite}
+      onClick={onToggle}
     />
   );
 };
