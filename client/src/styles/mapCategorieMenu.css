@@ -9,9 +9,11 @@
 .btn-Courses{
     margin-top: 20px;
     background-color: rgb(21, 96, 188);
+    border-radius: 25px;
 }
 .btn-Practice{
     background-color: rgb(239, 242, 245);
+    border-radius: 25px;
     margin-left: 2%;
     color:black;
 }

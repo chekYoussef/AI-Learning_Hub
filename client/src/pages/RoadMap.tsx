@@ -1,4 +1,4 @@
-import "./QuestionsPage.css";
+import "../styles/QuestionsPage.css";
 import "../styles/RoadMapPage.css";
 import CourseRoadmap from "../components/CourseRoadmap";
 import DashNav from "../components/DashNav";

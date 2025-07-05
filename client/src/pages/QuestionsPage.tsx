@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import "./QuestionsPage.css";
+import "../styles/QuestionsPage.css";
 
 const QuestionsPage: React.FC = () => {
   const [step, setStep] = useState(1);

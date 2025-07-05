@@ -8,6 +8,7 @@ import "./auth/passport.mjs";
 import geminiRoute from "./routes/gemini.mjs";
 import coursesRouter from "./routes/courses.mjs";
 import projectsRouter from "./routes/projects.mjs";
+import userRoutes from "./routes/user.mjs";
 
 
 dotenv.config();
@@ -39,7 +40,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use("/api/users", userRoutes);
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 app.get(
