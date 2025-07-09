@@ -8,4 +8,5 @@ const projectsSchema = new mongoose.Schema({
         clientNotes: String,
         ressources: String, 
     });
+    projectsSchema.index({ title: "text", description: "text" });
     export const Projects = mongoose.model("Projects", projectsSchema)

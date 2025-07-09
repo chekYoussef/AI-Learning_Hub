@@ -1,9 +1,23 @@
+// src/components/Login.tsx
 import { useGoogleLogin } from "@react-oauth/google";
-import { useState } from "react";
+import { useEffect } from "react";
 
-const Login = () => {
-  const [user, setUser] = useState<any>(null);
+interface LoginProps {
+  user?: {
+    sub: string;
+    name?: string;
+    email?: string;
+    picture?: string;
+  } | null;
+  setUser: (user: {
+    sub: string;
+    name?: string;
+    email?: string;
+    picture?: string;
+  }) => void;
+}
 
+const Login: React.FC<LoginProps> = ({ user, setUser }) => {
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
@@ -16,20 +30,14 @@ const Login = () => {
           }
         );
 
-        if (!res.ok) {
-          throw new Error("Failed to fetch user info");
-        }
-
         const userData = await res.json();
         console.log("Google user:", userData);
-        setUser(userData);
 
-        // ✅ Send to your backend
+        setUser(userData); // Set user in parent App
+
         await fetch("/api/users", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userData),
         });
       } catch (error) {
@@ -56,11 +64,7 @@ const Login = () => {
           <img
             src={user.picture}
             alt="profile"
-            style={{
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-            }}
+            style={{ width: "40px", height: "40px", borderRadius: "50%" }}
           />
         </div>
       )}

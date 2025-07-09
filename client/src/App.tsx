@@ -1,5 +1,5 @@
-// App.tsx
-import { useEffect } from "react";
+// src/App.tsx
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
 import Home from "./pages/Home";
@@ -9,6 +9,13 @@ import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
 
 const App: React.FC = () => {
+  const [user, setUser] = useState<{
+    sub: string;
+    name?: string;
+    email?: string;
+    picture?: string;
+  } | null>(null);
+
   useEffect(() => {
     fetch("http://localhost:5050/api", {
       headers: {
@@ -28,16 +35,19 @@ const App: React.FC = () => {
       .then((data) => console.log("Backend response:", data))
       .catch((err) => console.error("Detailed fetch error:", err.message));
   }, []);
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home user={user} setUser={setUser} />} />
         <Route path="/questions" element={<QuestionsPage />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route
+          path="/Dashboard"
+          element={<Dashboard user={user} setUser={setUser} />}
+        />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Courses" element={<Courses />} />
         <Route path="/RoadMap" element={<RoadMap />} />
-        {/* add more routes here */}
       </Routes>
     </Router>
   );

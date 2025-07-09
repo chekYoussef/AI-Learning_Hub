@@ -2,7 +2,16 @@
 import React, { useState } from "react";
 import "../styles/AiChatBox.css";
 
-const AiChatBox: React.FC = () => {
+interface AiChatBoxProps {
+  user: {
+    sub: string;
+    name?: string;
+    email?: string;
+    picture?: string;
+  } | null;
+}
+
+const AiChatBox: React.FC<AiChatBoxProps> = ({ user }) => {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
     []
@@ -10,6 +19,10 @@ const AiChatBox: React.FC = () => {
 
   const sendMessage = async () => {
     if (!userInput.trim()) return;
+    if (!user) {
+      console.warn("No user info available. Message not sent.");
+      return;
+    }
 
     const newMessages = [...messages, { role: "user", content: userInput }];
     setMessages(newMessages);
@@ -18,13 +31,19 @@ const AiChatBox: React.FC = () => {
       const response = await fetch("/api/gemini/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userInput }),
+        body: JSON.stringify({
+          message: userInput,
+          userID: user.sub,
+        }),
       });
 
       const data = await response.json();
       const botReply = data.reply?.trim() || "Sorry, I didn't get that.";
 
-      setMessages([...newMessages, { role: "assistant", content: botReply }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: botReply },
+      ]);
       setUserInput("");
     } catch (err) {
       console.error("Fetch error:", err);
@@ -58,7 +77,7 @@ const AiChatBox: React.FC = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Start Typing...."
+          placeholder="Start Typing..."
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           onKeyDown={handleKeyDown}

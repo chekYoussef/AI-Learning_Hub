@@ -7,4 +7,5 @@ const courseSchema = new mongoose.Schema({
     link: String,
     image: String, 
 });
+courseSchema.index({ title: "text", description: "text" });
 export const Course = mongoose.model("Course", courseSchema)
