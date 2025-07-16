@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/DashSideBar.css";
+import { useAuth } from "../context/AuthContext";
 
 const DashSideBar: React.FC = () => {
+  const { setUser } = useAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true); // sidebar open by default
 
@@ -58,7 +60,12 @@ const DashSideBar: React.FC = () => {
       </div>
 
       {isOpen && (
-        <button onClick={() => handleClick("/logout")}>
+        <button
+          onClick={() => {
+            localStorage.removeItem("localUser");
+            setUser(null);
+          }}
+        >
           <img
             src="/images/exit.png"
             alt="Logout Icon"

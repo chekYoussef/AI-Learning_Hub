@@ -1,5 +1,5 @@
 // src/App.tsx
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
 import Home from "./pages/Home";
@@ -7,16 +7,17 @@ import RoadMap from "./pages/RoadMap";
 import Projects from "./pages/Projects";
 import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
+import { useAuth } from "./context/AuthContext";
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<{
-    sub: string;
-    name?: string;
-    email?: string;
-    picture?: string;
-  } | null>(null);
+  const { setUser } = useAuth();
 
   useEffect(() => {
+    const storedUser = localStorage.getItem("localUser");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+
     fetch("http://localhost:5050/api", {
       headers: {
         "Content-Type": "application/json",
@@ -34,17 +35,14 @@ const App: React.FC = () => {
       })
       .then((data) => console.log("Backend response:", data))
       .catch((err) => console.error("Detailed fetch error:", err.message));
-  }, []);
+  }, [setUser]);
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home user={user} setUser={setUser} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/questions" element={<QuestionsPage />} />
-        <Route
-          path="/Dashboard"
-          element={<Dashboard user={user} setUser={setUser} />}
-        />
+        <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Courses" element={<Courses />} />
         <Route path="/RoadMap" element={<RoadMap />} />

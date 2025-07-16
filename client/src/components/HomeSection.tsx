@@ -1,12 +1,14 @@
 import React from "react";
-import "../App.css"; // or create HomeSection.css if separating styles
+import "../App.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const HomeSection: React.FC = () => {
+  const { user } = useAuth();
   return (
     <section className="home">
       <h2>
-        Welcome User, Ready to Build
+        Welcome {user?.name}, Ready to Build
         <br />
         Something Amazing?
       </h2>

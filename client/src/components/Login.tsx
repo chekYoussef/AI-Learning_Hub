@@ -1,23 +1,10 @@
 // src/components/Login.tsx
 import { useGoogleLogin } from "@react-oauth/google";
-import { useEffect } from "react";
+// import { useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
 
-interface LoginProps {
-  user?: {
-    sub: string;
-    name?: string;
-    email?: string;
-    picture?: string;
-  } | null;
-  setUser: (user: {
-    sub: string;
-    name?: string;
-    email?: string;
-    picture?: string;
-  }) => void;
-}
-
-const Login: React.FC<LoginProps> = ({ user, setUser }) => {
+const Login = () => {
+  const { user, setUser } = useAuth();
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
@@ -34,6 +21,7 @@ const Login: React.FC<LoginProps> = ({ user, setUser }) => {
         console.log("Google user:", userData);
 
         setUser(userData); // Set user in parent App
+        localStorage.setItem("localUser", JSON.stringify(userData));
 
         await fetch("/api/users", {
           method: "POST",
@@ -61,11 +49,31 @@ const Login: React.FC<LoginProps> = ({ user, setUser }) => {
         </a>
       ) : (
         <div className="profile-bubble">
-          <img
-            src={user.picture}
-            alt="profile"
-            style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-          />
+          <button
+            className="btn p-0 border-0 bg-transparent"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src={user.picture}
+              alt="profile"
+              style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+            />
+          </button>
+          <ul className="dropdown-menu dropdown-menu-end">
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={() => {
+                  localStorage.removeItem("localUser");
+                  setUser(null);
+                }}
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
         </div>
       )}
     </div>

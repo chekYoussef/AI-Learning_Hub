@@ -1,23 +1,35 @@
-.dashnav{
-    background-color: #1a1a1a;
+.dashnav {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 10px 20px;
 }
-.dashnav ul > li{
-    margin: 20px 15px;
-    padding: 4px 8px;
-}
-.dashnav ul{
-    list-style-type: none;
-    margin-bottom: 0;
-    padding-left: 0;
 
-    
+.nav-left ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-.dashnav li{
-    list-style-type: none;
-    display: inline-block;
 
+.nav-left li {
+  margin: 0 15px;
 }
-.dashnav a{
-   text-decoration: none;
-    color: white;
+
+.dashnav a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+#icon {
+  width: 20px;
+  margin-right: 6px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
 }

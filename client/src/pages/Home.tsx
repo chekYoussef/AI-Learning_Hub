@@ -2,20 +2,10 @@ import React from "react";
 import Navigation from "../components/Navigation";
 import HomeSection from "../components/HomeSection";
 
-interface HomeProps {
-  user: {
-    sub: string;
-    name?: string;
-    email?: string;
-    picture?: string;
-  } | null;
-  setUser: (user: any) => void;
-}
-
-const Home: React.FC<HomeProps> = ({ user, setUser }) => {
+const Home: React.FC = () => {
   return (
     <>
-      <Navigation user={user} setUser={setUser} />
+      <Navigation />
       <HomeSection />
     </>
   );
