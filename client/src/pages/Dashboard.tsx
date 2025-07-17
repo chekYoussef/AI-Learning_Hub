@@ -4,16 +4,14 @@ import AiChatBox from "../components/AiChatBox";
 import DashNav from "../components/DashNav";
 import DashSideBar from "../components/DashSidebar";
 import "../styles/Dashboard.css";
-import { useAuth } from "../context/AuthContext";
 
 const Dashboard = () => {
-  const { user } = useAuth();
   return (
     <div className="dashboard-page">
       <DashNav />
       <div className="dashboard-container">
         <DashSideBar />
-        <AiChatBox user={user} />
+        <AiChatBox />
       </div>
     </div>
   );

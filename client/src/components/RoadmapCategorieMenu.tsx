@@ -1,11 +1,15 @@
 import "../styles/mapCategorieMenu.css";
 import { useNavigate } from "react-router-dom";
 
-const MapCategorieMenu: React.FC = () => {
+interface Props {
+  setCategory: (category: string) => void;
+  selected: string;
+}
+
+const MapCategorieMenu: React.FC<Props> = ({ setCategory, selected }) => {
   const navigate = useNavigate();
   return (
     <div className="RightSectionMap">
-      <h3>Select Roadmap</h3>
       <button type="button" className="btn-Courses">
         Courses
       </button>
@@ -16,25 +20,43 @@ const MapCategorieMenu: React.FC = () => {
       >
         Practice
       </button>
-      <div className="list-group">
-        <a
-          href="#"
-          className="list-group-item list-group-item-action active"
-          aria-current="true"
-        >
-          Adobe Photoshop
-        </a>
-        <a href="#" className="list-group-item list-group-item-action">
-          Adobe Illustrator
-        </a>
-        <a href="#" className="list-group-item list-group-item-action">
-          Adobe Indesign
-        </a>
-        <a href="#" className="list-group-item list-group-item-action">
-          Adobe Premier Pro
-        </a>
-      </div>
+      <br></br>
+      <br></br>
+      <h3>Select Roadmap</h3>
+      <button
+        onClick={() => setCategory("photoshop")}
+        className={`list-group-item list-group-item-action ${
+          selected === "photoshop" ? "active" : ""
+        }`}
+      >
+        Adobe Photoshop
+      </button>
+      <button
+        onClick={() => setCategory("illustrator")}
+        className={`list-group-item list-group-item-action ${
+          selected === "illustrator" ? "active" : ""
+        }`}
+      >
+        Adobe Illustrator
+      </button>
+      <button
+        onClick={() => setCategory("indesign")}
+        className={`list-group-item list-group-item-action ${
+          selected === "indesign" ? "active" : ""
+        }`}
+      >
+        Adobe Indesign
+      </button>
+      <button
+        onClick={() => setCategory("premiere")}
+        className={`list-group-item list-group-item-action ${
+          selected === "premiere" ? "active" : ""
+        }`}
+      >
+        Adobe Premiere Pro
+      </button>
     </div>
   );
 };
+
 export default MapCategorieMenu;

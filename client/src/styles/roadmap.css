@@ -43,3 +43,18 @@
   margin-top: 8px;
  
 }
+.node-content iframe,
+.node-content img {
+  max-width: 240px;
+  height: 113px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.node-content h3 {
+  font-size: 1rem;
+  margin: 4px 0;
+}
+.node-content p {
+  font-size: 0.875rem;
+  color: #666;
+}

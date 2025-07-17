@@ -1,17 +1,10 @@
 // src/components/AiChatBox.tsx
 import React, { useState } from "react";
 import "../styles/AiChatBox.css";
+import { useAuth } from "../context/AuthContext";
 
-interface AiChatBoxProps {
-  user: {
-    sub: string;
-    name?: string;
-    email?: string;
-    picture?: string;
-  } | null;
-}
-
-const AiChatBox: React.FC<AiChatBoxProps> = ({ user }) => {
+const AiChatBox: React.FC = () => {
+  const { user } = useAuth();
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
     []

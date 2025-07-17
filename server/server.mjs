@@ -8,6 +8,7 @@ import "./auth/passport.mjs";
 import geminiRoute from "./routes/gemini.mjs";
 import coursesRouter from "./routes/courses.mjs";
 import projectsRouter from "./routes/projects.mjs";
+import roadmapRoutes from "./routes/roadmaps.mjs";
 import userRoutes from "./routes/user.mjs";
 
 
@@ -55,6 +56,7 @@ app.get(
 app.use("/api/gemini", geminiRoute);
 app.use("/api/courses", coursesRouter);
 app.use("/api/projects", projectsRouter);
+app.use("/api/roadmaps", roadmapRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server root is working ✅");
