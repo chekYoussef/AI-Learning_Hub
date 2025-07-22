@@ -14,7 +14,6 @@ interface Course {
 const categories = [
   "All",
   "Coding & Tech",
-  "Programming",
   "Data",
   "Design",
   "Marketing",

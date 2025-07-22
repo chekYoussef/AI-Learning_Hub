@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import RoadMap from "./pages/RoadMap";
 import Projects from "./pages/Projects";
 import Dashboard from "./pages/Dashboard";
+import CodingGame from "./pages/CodingGame";
 import Courses from "./pages/Courses";
 import { useAuth } from "./context/AuthContext";
 
@@ -43,6 +44,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/questions" element={<QuestionsPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/CodingGame" element={<CodingGame />} />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Courses" element={<Courses />} />
         <Route path="/RoadMap" element={<RoadMap />} />

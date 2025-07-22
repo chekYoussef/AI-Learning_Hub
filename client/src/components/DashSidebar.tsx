@@ -47,13 +47,41 @@ const DashSideBar: React.FC = () => {
 
         {isOpen && (
           <div className="sidebar-nav">
-            <button onClick={() => handleClick("/ai-chat")}>
-              <img src="/images/window.png" alt="AI Chat Icon" />
+            <button onClick={() => handleClick("/Dashboard")}>
+              <i
+                className="bi bi-chat-left-text"
+                style={{
+                  marginRight: "15px",
+                  fontSize: "20px",
+                  width: "20px",
+                  color: "#0d6efd",
+                }}
+              ></i>
               Ai Chat Helper
             </button>
             <button onClick={() => handleClick("/history")}>
-              <img src="/images/time-management.png" alt="History Icon" />
+              <i
+                className="bi bi-clock-history"
+                style={{
+                  marginRight: "15px",
+                  fontSize: "20px",
+                  width: "20px",
+                  color: "#6c757d",
+                }}
+              ></i>
               History
+            </button>
+            <button onClick={() => handleClick("/CodingGame")}>
+              <i
+                className="bi bi-controller"
+                style={{
+                  marginRight: "15px",
+                  fontSize: "20px",
+                  width: "20px",
+                  color: "#198754",
+                }}
+              ></i>
+              Coding Game
             </button>
           </div>
         )}
@@ -66,11 +94,10 @@ const DashSideBar: React.FC = () => {
             setUser(null);
           }}
         >
-          <img
-            src="/images/exit.png"
-            alt="Logout Icon"
-            style={{ marginRight: "5%" }}
-          />
+          <i
+            className="bi bi-box-arrow-right"
+            style={{ marginRight: "15px", fontSize: "20px", width: "20px" }}
+          ></i>
           Log out
         </button>
       )}

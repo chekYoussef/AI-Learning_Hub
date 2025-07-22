@@ -1,0 +1,226 @@
+.coding-game-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.game-layout {
+  display: flex;
+  flex-grow: 1;
+  padding: 2rem;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.instructions-panel,
+.preview-panel {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 30, 89, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.instructions-panel h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.feedback-box {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feedback-default {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border-left: 5px solid #a0aec0;
+}
+
+.feedback-success {
+  background-color: #c6f6d5;
+  color: #2f855a;
+  border-left: 5px solid #48bb78;
+}
+
+.feedback-error {
+  background-color: #fed7d7;
+  color: #c53030;
+  border-left: 5px solid #f56565;
+}
+
+.editor-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: #2d3748;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.editor-header {
+  background: #4a5568;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+.code-editor {
+  flex-grow: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #90cdf4;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 1rem;
+  padding: 1rem;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+}
+
+.code-editor:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.game-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.game-button:hover:not(:disabled) {
+  background-color: #3182ce;
+}
+
+.game-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.game-button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.preview-panel {
+  padding: 0;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: #edf2f7;
+  border-bottom: 1px solid #e2e8f0;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.preview-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.preview-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.preview-dots span:nth-child(1) {
+  background-color: #fc5753;
+}
+.preview-dots span:nth-child(2) {
+  background-color: #fdbb2d;
+}
+.preview-dots span:nth-child(3) {
+  background-color: #27c93f;
+}
+
+.preview-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.live-preview {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 8px;
+}
+
+.progress-step {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  color: #4a5568;
+  background-color: #e2e8f0;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.progress-step:hover:not(:disabled) {
+  background-color: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+.progress-step.completed {
+  color: #2f855a;
+  background-color: #c6f6d5;
+}
+
+.progress-step.completed:hover:not(:disabled) {
+  background-color: #9ae6b4;
+}
+
+.progress-step.current {
+  color: #2c5282;
+  background-color: #bee3f8;
+  border-color: #4299e1;
+  font-weight: 700;
+}
+
+.progress-step.locked {
+  color: #a0aec0;
+  background-color: #f7fafc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

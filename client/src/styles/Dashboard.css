@@ -1,9 +1,12 @@
 .dashboard-page{
     background-color:#212324;
+    display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .dashboard-container{
     display: flex;
-    height: 95vh;
-    width: 100vw;
+  flex-grow: 1;
 }
