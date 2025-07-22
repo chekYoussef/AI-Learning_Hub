@@ -1,30 +1,55 @@
 import "../styles/DashNav.css";
 import Login from "./Login";
+import { NavLink } from "react-router-dom";
+
 const DashNav: React.FC = () => {
+  const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
+    `dash-nav-link ${isActive ? "active" : ""}`;
+
   return (
     <nav>
       <div className="dashnav">
         <div className="nav-left">
           <ul>
             <li>
-              <a href="/Dashboard">
-                <img id="icon" src="/images/dashboard.png" /> Dashboard
-              </a>
+              <NavLink to="/Dashboard" className={getNavLinkClass}>
+                <img
+                  className="icon"
+                  src="/images/dashboard.png"
+                  alt="Dashboard icon"
+                />{" "}
+                Dashboard
+              </NavLink>
             </li>
             <li>
-              <a href="/Courses">
-                <img id="icon" src="/images/layers.png" /> Courses
-              </a>
+              <NavLink to="/Courses" className={getNavLinkClass}>
+                <img
+                  className="icon"
+                  src="/images/layers.png"
+                  alt="Courses icon"
+                />{" "}
+                Courses
+              </NavLink>
             </li>
             <li>
-              <a href="/Projects">
-                <img id="icon" src="/images/learning.png" /> Projects
-              </a>
+              <NavLink to="/Projects" className={getNavLinkClass}>
+                <img
+                  className="icon"
+                  src="/images/learning.png"
+                  alt="Projects icon"
+                />{" "}
+                Projects
+              </NavLink>
             </li>
             <li>
-              <a href="/RoadMap">
-                <img id="icon" src="/images/roadmap.png" /> Roadmap
-              </a>
+              <NavLink to="/RoadMap" className={getNavLinkClass}>
+                <img
+                  className="icon"
+                  src="/images/roadmap.png"
+                  alt="Roadmap icon"
+                />{" "}
+                Roadmap
+              </NavLink>
             </li>
           </ul>
         </div>

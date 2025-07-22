@@ -10,10 +10,11 @@
   color: white;
   height: 92vh;
   display: flex;
+  border-top-right-radius: 25px;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-
+  margin-top: 15px;
   overflow: hidden;
 }
 

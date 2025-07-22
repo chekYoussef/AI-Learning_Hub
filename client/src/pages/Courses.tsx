@@ -13,15 +13,17 @@ interface Course {
 
 const categories = [
   "All",
-  "Web",
+  "Coding & Tech",
   "Programming",
   "Data",
   "Design",
-  "Marketing & PR",
-  "Entrepreneurship",
+  "Marketing",
+  "Business & Entrepreneurship",
   "Project Management",
   "Finance",
-  "Soft Skills",
+  "Career Skills",
+  "Law & Politics",
+  "Healthcare",
 ];
 
 const Courses: React.FC = () => {
@@ -46,13 +48,7 @@ const Courses: React.FC = () => {
       <div className="courses-header">
         <h2>Courses</h2>
         <p>Discover and create new courses at the Edge Center</p>
-        <button className="new-course-btn">
-          <i
-            className="bi bi-plus"
-            style={{ color: "white", marginRight: "5px", fontSize: "auto" }}
-          ></i>
-          New Courses
-        </button>
+
         <div className="category-buttons">
           {categories.map((category) => (
             <button

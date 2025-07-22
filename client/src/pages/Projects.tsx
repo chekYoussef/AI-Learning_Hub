@@ -107,7 +107,7 @@ const Projects: React.FC = () => {
                     <p className="card-text">{project.description}</p>
 
                     <a
-                      href={project.clientNotes}
+                      href={`../images/${project.clientNotes}`}
                       target="_blank"
                       rel="noreferrer"
                       className="btn-clients"
@@ -115,7 +115,7 @@ const Projects: React.FC = () => {
                       Client Notes
                     </a>
                     <a
-                      href={project.ressources}
+                      href={`../images/${project.ressources}`}
                       target="_blank"
                       rel="noreferrer"
                       className="btn-ress"

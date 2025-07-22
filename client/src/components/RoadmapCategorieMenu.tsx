@@ -25,33 +25,25 @@ const MapCategorieMenu: React.FC<Props> = ({ setCategory, selected }) => {
       <h3>Select Roadmap</h3>
       <button
         onClick={() => setCategory("photoshop")}
-        className={`list-group-item list-group-item-action ${
-          selected === "photoshop" ? "active" : ""
-        }`}
+        className={`btn-selector ${selected === "photoshop" ? "active" : ""}`}
       >
         Adobe Photoshop
       </button>
       <button
         onClick={() => setCategory("illustrator")}
-        className={`list-group-item list-group-item-action ${
-          selected === "illustrator" ? "active" : ""
-        }`}
+        className={`btn-selector ${selected === "illustrator" ? "active" : ""}`}
       >
         Adobe Illustrator
       </button>
       <button
         onClick={() => setCategory("indesign")}
-        className={`list-group-item list-group-item-action ${
-          selected === "indesign" ? "active" : ""
-        }`}
+        className={`btn-selector ${selected === "indesign" ? "active" : ""}`}
       >
         Adobe Indesign
       </button>
       <button
         onClick={() => setCategory("premiere")}
-        className={`list-group-item list-group-item-action ${
-          selected === "premiere" ? "active" : ""
-        }`}
+        className={`btn-selector ${selected === "premiere" ? "active" : ""}`}
       >
         Adobe Premiere Pro
       </button>

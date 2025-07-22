@@ -8,7 +8,7 @@ const DropdownMoreButton: React.FC<DropdownMoreProps> = ({
   onArchive,
 }) => {
   return (
-    <div className="dropdown">
+    <div className="dropdown dropup">
       <button
         className="btn p-0 border-0 bg-transparent"
         type="button"
