@@ -1,60 +1,53 @@
-
+.roadmap-wrapper {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;        /* must be auto not hidden so pan/scroll works */
+  position: relative;
+  box-sizing: border-box;
+  cursor: grab;
+}
 
 #course-roadmap {
   opacity: 0;
-  transition: opacity 2.5 ease-in;
+  transition: opacity 2.5s ease-in;
+  position: relative;
+  overflow: visible;     /* critical — don't let the container clip Treant's absolute children */
+  display: inline-block;
 }
+
 #course-roadmap.loaded {
-  opacity: 2;
-}
-
-/* roadmap.css */
-.roadmap-wrapper {
-  width: 100vw;
-  height: 100vh;
-  flex: 1;
-  overflow: auto;
-  position: relative;
-}
-
-/* optional: ensures the inner roadmap expands properly */
-#course-roadmap {
-  min-width: 2000px; /* or a large enough value */
-  min-height: 1000px;
-  position: relative;
+  opacity: 1;
 }
 
 
 .node-content {
   background-color: #262626;
   text-align: center;
-  width: 240px;
-  height: 235px;
-  color:white;
+  color: white;
+  width: var(--node-width, 240px);
+  height: var(--node-height, 235px);
+  border-radius: 8px;
+  padding: 4px;
+  box-sizing: border-box;
 }
 
-.node-content h3 {
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-
-.node-content p {
-  font-size: 14px;
-  margin-top: 8px;
- 
-}
 .node-content iframe,
 .node-content img {
-  max-width: 240px;
-  height: 113px;
+  width: 100%;
+  height: var(--node-media-height, 113px);
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 .node-content h3 {
   font-size: 1rem;
   margin: 4px 0;
 }
+
 .node-content p {
   font-size: 0.875rem;
-  color: #666;
+  color: #aaa;
 }

@@ -10,7 +10,11 @@ const MapCategorieMenu: React.FC<Props> = ({ setCategory, selected }) => {
   const navigate = useNavigate();
   return (
     <div className="RightSectionMap">
-      <button type="button" className="btn-Courses">
+      <button
+        type="button"
+        className="btn-Courses"
+        onClick={() => navigate("/Courses")}
+      >
         Courses
       </button>
       <button

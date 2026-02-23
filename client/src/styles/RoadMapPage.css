@@ -2,9 +2,19 @@
     background-color:rgb(44, 43, 43);
 }
 
+.RoadMap-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .RoadMap-content {
   display: flex;
-  height: calc(100vh - 60px);
-  width: 100vw;
+  flex-direction: row;
+  flex: 1;                  /* fill remaining height after DashNav */
+  min-height: 0;            /* critical — prevents flex children from overflowing */
   overflow: hidden;
 }

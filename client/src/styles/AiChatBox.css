@@ -107,6 +107,7 @@ button.btn img {
   background-color: #353739;
   color: white;
   text-align: left;
+  white-space: pre-wrap;
 }
 
 @keyframes messageFadeIn {

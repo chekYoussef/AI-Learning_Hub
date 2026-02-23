@@ -3,8 +3,12 @@ import Project from "../models/Project.js";
 
 // Try searching for relevant internal content first
 const relevantCourses = await Course.find({
-  $text: { $search: userMessage }
-}).limit(3);
+  $or: [
+    { title: { $regex: userMessage, $options: "i" } },
+    { description: { $regex: userMessage, $options: "i" } },
+    { category: { $regex: userMessage, $options: "i" } },
+  ],
+}).limit(5);
 
 const relevantProjects = await Project.find({
   $text: { $search: userMessage }

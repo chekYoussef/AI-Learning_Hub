@@ -22,20 +22,17 @@ const AiChatBox: React.FC = () => {
 
   const sendMessage = async () => {
     if (!userInput.trim()) return;
-    if (!user) {
-      console.warn("No user info available. Message not sent.");
-      return;
-    }
+    if (!user) return;
 
     const currentInput = userInput;
     const userMessage = { role: "user", content: currentInput };
 
-    // Optimistically add user message and show typing indicator
     setMessages((prev) => [...prev, userMessage]);
     setUserInput("");
     setIsBotTyping(true);
+
     const startTime = Date.now();
-    const MIN_TYPING_TIME = 1000; // Minimum 1 second typing time
+    const MIN_TYPING_TIME = 1000;
 
     try {
       const response = await fetch("/api/gemini/chat", {
@@ -43,33 +40,30 @@ const AiChatBox: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: currentInput,
-          userID: user.sub,
+          userId: user.sub, // ← fixed: was userID, backend expects userId
+          history: messages, // ← send full history for memory
         }),
       });
 
       const data = await response.json();
       const botReply = data.reply?.trim() || "Sorry, I didn't get that.";
-      const botMessage = { role: "assistant", content: botReply };
-
-      setMessages((prev) => [...prev, botMessage]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: botReply },
+      ]);
     } catch (err) {
       console.error("Fetch error:", err);
-      const errorMessage = {
-        role: "assistant",
-        content: "Oops! Something went wrong. Please try again.",
-      };
-      setMessages((prev) => [...prev, errorMessage]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Oops! Something went wrong. Please try again.",
+        },
+      ]);
     } finally {
-      const elapsedTime = Date.now() - startTime;
-      const remainingTime = MIN_TYPING_TIME - elapsedTime;
-
-      if (remainingTime > 0) {
-        setTimeout(() => {
-          setIsBotTyping(false);
-        }, remainingTime);
-      } else {
-        setIsBotTyping(false);
-      }
+      const elapsed = Date.now() - startTime;
+      const remaining = MIN_TYPING_TIME - elapsed;
+      setTimeout(() => setIsBotTyping(false), remaining > 0 ? remaining : 0);
     }
   };
 
